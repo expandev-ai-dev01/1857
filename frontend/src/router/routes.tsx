@@ -9,6 +9,24 @@ const HomePage = lazy(() =>
 const NotFoundPage = lazy(() =>
   import('@/pages/NotFound').then((module) => ({ default: module.NotFoundPage }))
 );
+const CatalogPage = lazy(() =>
+  import('@/pages/Catalog').then((module) => ({ default: module.CatalogPage }))
+);
+const AnimalDetailsPage = lazy(() =>
+  import('@/pages/AnimalDetails').then((module) => ({ default: module.AnimalDetailsPage }))
+);
+const MyAnimalsPage = lazy(() =>
+  import('@/pages/Donor/MyAnimals').then((module) => ({ default: module.MyAnimalsPage }))
+);
+const CreateAnimalPage = lazy(() =>
+  import('@/pages/Donor/CreateAnimal').then((module) => ({ default: module.CreateAnimalPage }))
+);
+const EditAnimalPage = lazy(() =>
+  import('@/pages/Donor/EditAnimal').then((module) => ({ default: module.EditAnimalPage }))
+);
+const DonorRequestPage = lazy(() =>
+  import('@/pages/Donor/Request').then((module) => ({ default: module.DonorRequestPage }))
+);
 
 const routes = createBrowserRouter([
   {
@@ -28,6 +46,30 @@ const routes = createBrowserRouter([
       {
         index: true,
         element: <HomePage />,
+      },
+      {
+        path: 'pets',
+        element: <CatalogPage />,
+      },
+      {
+        path: 'pets/:id',
+        element: <AnimalDetailsPage />,
+      },
+      {
+        path: 'donor/request',
+        element: <DonorRequestPage />,
+      },
+      {
+        path: 'donor/animals',
+        element: <MyAnimalsPage />,
+      },
+      {
+        path: 'donor/animals/new',
+        element: <CreateAnimalPage />,
+      },
+      {
+        path: 'donor/animals/:id/edit',
+        element: <EditAnimalPage />,
       },
       {
         path: '*',
